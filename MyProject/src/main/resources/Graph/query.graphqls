@@ -1,0 +1,35 @@
+type Student{
+	 id:ID!
+	 name:String!
+	 classroom:ClassRoom
+	 school:School
+	 }
+	 
+type School{
+	scid:ID!
+	name:String!
+	}
+
+type ClassRoom{
+	cid:ID!
+	grade:Int!
+	section:String!
+}
+
+type Query{
+findAllStudent:[Student]!
+findAllClassRoom:[ClassRoom]!
+findAllSchool:[School]!
+findSchoolById(scid:ID!):School!
+findStudentById(id:ID!):Student!
+findClassRoomById(cid:ID!):ClassRoom!
+}
+
+
+type Mutation{
+createStudent(name:String!,classroom:ID!,school:ID!):Student!
+createClassRoom(grade:Int!,section:String!):ClassRoom!
+createSchool(name:String!):School!
+deleteStudent(id:ID!):Boolean
+updateStudent(id:ID!,name:String!):Student!
+}
